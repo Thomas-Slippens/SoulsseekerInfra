@@ -1,0 +1,6 @@
+apiVersion: v2
+name: vectorizer
+description: Background worker that generates embeddings from tactical reports using Cosmos DB change feed
+type: application
+version: 0.1.0
+appVersion: "1.0"

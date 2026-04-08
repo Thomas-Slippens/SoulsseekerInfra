@@ -1,0 +1,6 @@
+apiVersion: v2
+name: combat-analysis
+description: API for generating tactical combat analysis reports
+type: application
+version: 0.1.0
+appVersion: "1.0"
