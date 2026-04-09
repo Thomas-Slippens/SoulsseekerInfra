@@ -1,0 +1,45 @@
+replicaCount: 1
+
+image:
+  repository: soulseekerscontainers.azurecr.io/combat-feedback-generator
+  tag: "0.1"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: acr-secret
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  host: souls.local
+  path: /feedback
+
+env:
+  - name: DOTNET_RUNNING_IN_CONTAINER
+    key: DOTNET_RUNNING_IN_CONTAINER
+  - name: ASPNETCORE_URLS
+    key: ASPNETCORE_URLS
+  - name: OpenAI__Endpoint
+    key: OpenAI__Endpoint
+  - name: OpenAI__ApiKey
+    key: OpenAI__ApiKey
+  - name: OpenAI__DeploymentName
+    key: OpenAI__DeploymentName
+  - name: OpenAI__ApiVersion
+    key: OpenAI__ApiVersion
+  - name: Cosmos__ConnectionString
+    key: Cosmos__ConnectionString
+  - name: Cosmos__DatabaseName
+    key: Cosmos__DatabaseName
+  - name: Cosmos__TacticalReportVectorsContainerName
+    key: Cosmos__TacticalReportVectorsContainerName
+  - name: Cosmos__UserTacticalReportContainerName
+    key: Cosmos__UserTacticalReportContainerName
+  - name: UseManagedIdentity
+    key: UseManagedIdentity
+
+configMapName: feedback-config
