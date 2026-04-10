@@ -17,6 +17,12 @@ spec:
   template:
     metadata:
       name: '{{name}}'
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: app=soulseekerscontainers.azurecr.io/{{name}}
+        argocd-image-updater.argoproj.io/app.update-strategy: latest
+        argocd-image-updater.argoproj.io/app.allow-tags: regexp:^[a-f0-9]{40}$
+        argocd-image-updater.argoproj.io/write-back-method: argocd
+        argocd-image-updater.argoproj.io/app.pull-secret: pullsecret:argocd/acr-creds
     spec:
       project: default
       source:
