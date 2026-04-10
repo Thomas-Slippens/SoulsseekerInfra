@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: soulseekerscontainers.azurecr.io/combat-analysis-generator
+  repository: soulseekerscontainers.azurecr.io/combat-analysis
   tag: "0.1"
   pullPolicy: IfNotPresent
 

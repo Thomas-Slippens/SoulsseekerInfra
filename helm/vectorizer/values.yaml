@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: soulseekerscontainers.azurecr.io/tactical-summary-vectorizer
+  repository: soulseekerscontainers.azurecr.io/vectorizer
   tag: "0.1"
   pullPolicy: IfNotPresent
 
