@@ -15,7 +15,7 @@ spec:
 
     helm:
       values: |
-        installCRDs: true
+        installCRDs: false
 
   destination:
     server: https://kubernetes.default.svc
