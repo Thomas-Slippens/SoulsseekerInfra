@@ -12,10 +12,7 @@ spec:
 
           - name: ingress-nginx
             path: platform/ingress-nginx
-
-          - name: cert-manager
-            path: platform/cert-manager
-
+            
           - name: external-dns
             path: platform/external-dns
 
