@@ -16,9 +16,6 @@ spec:
       values: |
         provider: azure
 
-        azure:
-          useManagedIdentityExtension: true
-
         domainFilters:
           - kubernetes.soulsseeker.com
 
@@ -29,9 +26,15 @@ spec:
         serviceAccount:
           create: true
           name: external-dns
+          annotations:
+            azure.workload.identity/client-id: "3e6c1061-eb54-403c-9f8e-e8b92269e252"
+
+        podLabels:
+          azure.workload.identity/use: "true"
 
         extraArgs:
           - --azure-resource-group=accelerateThomas
+          - --azure-use-workload-identity
 
   destination:
     server: https://kubernetes.default.svc
