@@ -33,8 +33,9 @@ spec:
           azure.workload.identity/use: "true"
 
         azure:
-          useWorkloadIdentityExtension: true
           resourceGroup: accelerateThomas
+          useManagedIdentityExtension: false
+          useWorkloadIdentityExtension: true
 
         extraArgs:
           - --domain-filter=kubernetes.soulsseeker.com
