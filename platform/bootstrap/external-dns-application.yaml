@@ -34,9 +34,9 @@ spec:
 
         azure:
           useWorkloadIdentityExtension: true
+          resourceGroup: accelerateThomas
 
         extraArgs:
-          - --azure-resource-group=accelerateThomas
           - --domain-filter=kubernetes.soulsseeker.com
 
   destination:
