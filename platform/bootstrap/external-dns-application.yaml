@@ -34,3 +34,15 @@ spec:
 
         extraArgs:
           - --azure-resource-group=accelerateThomas
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
