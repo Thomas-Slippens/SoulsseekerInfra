@@ -14,7 +14,7 @@ spec:
 
     helm:
       values: |
-        provider: azure-private-dns  
+        provider: azure-private-dns
 
         domainFilters:
           - kubernetes.soulsseeker.com
@@ -33,11 +33,17 @@ spec:
           azure.workload.identity/use: "true"
 
         azure:
-          resourceGroup: accelerateThomas
-          tenantId: "92b1c82c-10a6-40ec-8b2e-1e63eeb29438"
-          subscriptionId: "f717c997-2aa5-4098-8b77-aae87ad42cac"
-          useWorkloadIdentityExtension: true  
-          useManagedIdentityExtension: false
+          azureConfigFile: /etc/kubernetes/azure.json
+
+        extraVolumes:
+          - name: azure-config-file
+            secret:
+              secretName: external-dns-azure
+
+        extraVolumeMounts:
+          - name: azure-config-file
+            mountPath: /etc/kubernetes
+            readOnly: true
 
         extraArgs:
           - --domain-filter=kubernetes.soulsseeker.com
