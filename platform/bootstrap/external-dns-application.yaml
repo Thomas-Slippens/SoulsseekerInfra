@@ -37,16 +37,10 @@ spec:
             value: https://login.microsoftonline.com/
 
         extraArgs:
-          - --log-format=text
-          - --interval=1m
-          - --source=service
-          - --source=ingress
-          - --policy=sync
-          - --registry=txt
-          - --txt-owner-id=aks-prod
-          - --domain-filter=kubernetes.soulsseeker.com
           - --provider=azure
           - --azure-resource-group=accelerateThomas
+          - --txt-owner-id=aks-prod
+          - --domain-filter=kubernetes.soulsseeker.com
 
   destination:
     server: https://kubernetes.default.svc
