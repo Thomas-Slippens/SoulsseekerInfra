@@ -33,11 +33,18 @@ spec:
           azure.workload.identity/use: "true"
 
         azure:
-          resourceGroup: accelerateThomas
-          useManagedIdentityExtension: false
           useWorkloadIdentityExtension: true
+          resourceGroup: accelerateThomas
 
         extraArgs:
+          - --log-level=info
+          - --log-format=text
+          - --interval=1m
+          - --source=service
+          - --source=ingress
+          - --policy=sync
+          - --registry=txt
+          - --txt-owner-id=aks-prod
           - --domain-filter=kubernetes.soulsseeker.com
 
   destination:
