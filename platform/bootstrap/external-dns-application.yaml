@@ -37,7 +37,6 @@ spec:
             value: https://login.microsoftonline.com/
 
         extraArgs:
-          - --log-level=info
           - --log-format=text
           - --interval=1m
           - --source=service
