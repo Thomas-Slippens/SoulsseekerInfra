@@ -34,6 +34,7 @@ spec:
 
         extraArgs:
           - --azure-resource-group=accelerateThomas
+          - --azure-use-workload-identity
           - --domain-filter=kubernetes.soulsseeker.com
           - --azure-user-assigned-identity-client-id=3e6c1061-eb54-403c-9f8e-e8b92269e252
 
