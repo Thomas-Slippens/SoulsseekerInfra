@@ -34,12 +34,11 @@ spec:
 
         azure:
           resourceGroup: accelerateThomas
+          azureConfigFile: null  
 
         extraArgs:
           - --domain-filter=kubernetes.soulsseeker.com
-          - --azure-resource-group=accelerateThomas
           - --txt-owner-id=aks-prod
-          - --provider=azure
 
   destination:
     server: https://kubernetes.default.svc
