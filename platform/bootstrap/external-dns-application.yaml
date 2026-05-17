@@ -32,6 +32,10 @@ spec:
         podLabels:
           azure.workload.identity/use: "true"
 
+        env:
+          - name: AZURE_AUTHORITY_HOST
+            value: https://login.microsoftonline.com/
+
         extraArgs:
           - --log-level=info
           - --log-format=text
@@ -44,7 +48,6 @@ spec:
           - --domain-filter=kubernetes.soulsseeker.com
           - --provider=azure
           - --azure-resource-group=accelerateThomas
-          - --azure-use-managed-identity-extension=false
 
   destination:
     server: https://kubernetes.default.svc
