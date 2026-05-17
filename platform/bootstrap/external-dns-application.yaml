@@ -34,7 +34,7 @@ spec:
 
         azure:
           resourceGroup: accelerateThomas
-          azureConfigFile: null  
+          azureConfigFile: ""  
 
         extraArgs:
           - --domain-filter=kubernetes.soulsseeker.com
