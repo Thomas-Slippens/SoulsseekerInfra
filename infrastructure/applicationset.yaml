@@ -9,13 +9,6 @@ spec:
   generators:
     - list:
         elements:
-
-          - name: ingress-nginx
-            path: platform/ingress-nginx
-            
-          - name: external-dns
-            path: platform/external-dns
-
           - name: keyvault
             path: platform/keyvault
 

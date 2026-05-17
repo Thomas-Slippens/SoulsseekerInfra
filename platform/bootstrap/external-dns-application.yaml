@@ -20,7 +20,7 @@ spec:
           - kubernetes.soulsseeker.com
 
         policy: sync
-
+        registry: txt
         txtOwnerId: aks-prod
 
         serviceAccount:
@@ -34,16 +34,3 @@ spec:
 
         extraArgs:
           - --azure-resource-group=accelerateThomas
-          - --azure-use-workload-identity
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: external-dns
-
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-
-    syncOptions:
-      - CreateNamespace=true
