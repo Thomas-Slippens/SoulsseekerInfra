@@ -37,7 +37,6 @@ spec:
             value: https://login.microsoftonline.com/
 
         extraArgs:
-          - --provider=azure
           - --azure-resource-group=accelerateThomas
           - --txt-owner-id=aks-prod
           - --domain-filter=kubernetes.soulsseeker.com
