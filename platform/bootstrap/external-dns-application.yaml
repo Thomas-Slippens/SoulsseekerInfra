@@ -38,7 +38,8 @@ spec:
 
         extraArgs:
           - --domain-filter=kubernetes.soulsseeker.com
-
+          - --azure-use-default-credential=true
+          
   destination:
     server: https://kubernetes.default.svc
     namespace: external-dns
