@@ -14,7 +14,7 @@ spec:
 
     helm:
       values: |
-        provider: azure
+        provider: azure-private-dns  
 
         domainFilters:
           - kubernetes.soulsseeker.com
@@ -34,12 +34,14 @@ spec:
 
         azure:
           resourceGroup: accelerateThomas
-          azureConfigFile: ""  
+          tenantId: "92b1c82c-10a6-40ec-8b2e-1e63eeb29438"
+          subscriptionId: "f717c997-2aa5-4098-8b77-aae87ad42cac"
+          useWorkloadIdentityExtension: true  
+          useManagedIdentityExtension: false
 
         extraArgs:
           - --domain-filter=kubernetes.soulsseeker.com
-          - --azure-use-default-credential=true
-          
+
   destination:
     server: https://kubernetes.default.svc
     namespace: external-dns
@@ -48,6 +50,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
     syncOptions:
       - CreateNamespace=true
