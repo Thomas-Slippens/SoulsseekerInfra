@@ -28,7 +28,7 @@ spec:
       http:
         paths:
           - path: /feedback(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
 
             backend:
               service:
