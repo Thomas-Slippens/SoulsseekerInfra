@@ -22,7 +22,7 @@ spec:
             path: helm/vectorizer
 
           - name: clusterissuer
-            path: platform/clusterissuer
+            path: platform/cert-manager
 
   template:
     metadata:
