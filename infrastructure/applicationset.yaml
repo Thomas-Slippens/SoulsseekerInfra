@@ -21,6 +21,9 @@ spec:
           - name: vectorizer
             path: helm/vectorizer
 
+          - name: clusterissuer
+            path: platform/clusterissuer
+
   template:
     metadata:
       name: '{{name}}'
