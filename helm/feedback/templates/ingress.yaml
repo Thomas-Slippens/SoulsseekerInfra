@@ -11,6 +11,7 @@ metadata:
 
     # Cert-manager integration
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    external-dns.alpha.kubernetes.io/hostname: kubernetes.soulsseeker.com
 
 spec:
   ingressClassName: nginx

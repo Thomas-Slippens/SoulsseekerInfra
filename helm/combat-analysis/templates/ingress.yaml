@@ -9,6 +9,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    external-dns.alpha.kubernetes.io/hostname: kubernetes.soulsseeker.com
 
 spec:
   ingressClassName: nginx
