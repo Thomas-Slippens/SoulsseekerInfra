@@ -8,10 +8,6 @@ metadata:
 
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-
     external-dns.alpha.kubernetes.io/hostname: kubernetes.soulsseeker.com
 
 spec:
@@ -24,25 +20,16 @@ spec:
 
   rules:
     - host: {{ .Values.ingress.host }}
+
       http:
         paths:
+          - path: /analysis
+            pathType: Prefix
 
-          # 1) STRICT ACME EXCLUSION (critical safety rule)
-          # This ensures cert-manager HTTP-01 is never affected by rewrite logic
-          - path: /.well-known/acme-challenge(/|$)(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: cm-acme-http-solver
-                port:
-                  number: 8089
-
-          # 2) Your app route (regex stays)
-          - path: /analysis(/|$)(.*)
-            pathType: ImplementationSpecific
             backend:
               service:
                 name: combat-analysis
+
                 port:
                   number: {{ .Values.service.port }}
 
