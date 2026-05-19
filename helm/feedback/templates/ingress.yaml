@@ -7,8 +7,11 @@ metadata:
   name: feedback
 
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: letsencrypt-prod
+
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+
     external-dns.alpha.kubernetes.io/hostname: kubernetes.soulsseeker.com
 
 spec:
@@ -17,21 +20,18 @@ spec:
   tls:
     - hosts:
         - {{ .Values.ingress.host }}
-
       secretName: {{ .Values.ingress.tls.secretName }}
 
   rules:
     - host: {{ .Values.ingress.host }}
-
       http:
         paths:
+          # IMPORTANT: feedback path only
           - path: /feedback(/|$)(.*)
             pathType: ImplementationSpecific
-
             backend:
               service:
                 name: feedback
-
                 port:
                   number: {{ .Values.service.port }}
 
