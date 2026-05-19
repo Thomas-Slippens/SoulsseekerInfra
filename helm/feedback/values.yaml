@@ -16,7 +16,7 @@ service:
 ingress:
   enabled: true
 
-  host: feedback.soulsseeker.com
+  host: kubernetes.soulsseeker.com
 
   tls:
     enabled: true
