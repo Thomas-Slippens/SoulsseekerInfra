@@ -2,16 +2,19 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-prod
-
 spec:
   acme:
     email: slippensthomas@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
-
     privateKeySecretRef:
       name: letsencrypt-prod
 
     solvers:
-    - http01:
-        ingress:
-          ingressClassName: nginx
+    - dns01:
+        azureDNS:
+          subscriptionID: f717c997-2aa5-4098-8b77-aae87ad42cac
+          resourceGroupName: accelerateThomas
+          hostedZoneName: soulsseeker.com
+          environment: AzurePublicCloud
+          managedIdentity:
+            clientID: 3e6c1061-eb54-403c-9f8e-e8b92269e252
