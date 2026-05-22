@@ -11,12 +11,10 @@ spec:
     repoURL: https://charts.jetstack.io
     chart: cert-manager
     targetRevision: v1.18.2
+
     helm:
       values: |
         installCRDs: true
-
-        podLabels:
-          azure.workload.identity/use: "true"
 
         serviceAccount:
           create: false
