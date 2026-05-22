@@ -19,6 +19,8 @@ spec:
           azure.workload.identity/use: "true"
 
         serviceAccount:
+          create: false
+          name: cert-manager
           annotations:
             azure.workload.identity/client-id: 3e6c1061-eb54-403c-9f8e-e8b92269e252
 
