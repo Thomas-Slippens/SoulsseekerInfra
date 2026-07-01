@@ -16,6 +16,8 @@ spec:
       values: |
         provider: azure
 
+        logLevel: debug
+
         domainFilters:
           - kubernetes.soulsseeker.com
 
@@ -45,9 +47,7 @@ spec:
             mountPath: /etc/kubernetes
             readOnly: true
 
-        extraArgs:
-          - --domain-filter=kubernetes.soulsseeker.com
-          - --log-level=debug
+        extraArgs: []
 
   destination:
     server: https://kubernetes.default.svc
