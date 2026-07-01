@@ -19,6 +19,9 @@ spec:
 
           service:
             type: LoadBalancer
+            annotations:
+              service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+              service.beta.kubernetes.io/azure-load-balancer-health-probe-port: "10254"
 
           publishService:
             enabled: true
