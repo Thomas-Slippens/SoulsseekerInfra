@@ -32,6 +32,15 @@ secretName: kv-secrets
 config:
   OpenAI__DeploymentName: "text-embedding-3-small"
   OpenAI__ApiVersion: "2024-12-01"
+  DOTNET_RUNNING_IN_CONTAINER: "true"
+  ASPNETCORE_URLS: "http://+:8080"
+  OpenAI__Endpoint: "https://soulsseekersai.cognitiveservices.azure.com/"
+  Cosmos__DatabaseName: "SoulSeekers"
+  Cosmos__TacticalReportVectorsContainerName: "SoulSeekersTacticalReportVectors"
+  Cosmos__UserTacticalReportContainerName: "SoulSeekersTacticalReports"
+  UseManagedIdentity: "false"
+  Cosmos__UserPostCombatDialogueContainerName: "SoulSeekersPostCombatDialogue"
+  Cosmos__VectorContainer: "SoulSeekersTacticalReportVectors"
 
 envFrom:
   - secretRef:

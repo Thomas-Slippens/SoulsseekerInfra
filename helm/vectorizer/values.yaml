@@ -13,9 +13,23 @@ imagePullSecrets:
 secretName: kv-secrets
 
 # Inject all Key Vault-backed secrets as env vars
+config:
+  OpenAI__EmbeddingDeployment: "text-embedding-3-small"
+  DOTNET_RUNNING_IN_CONTAINER: "true"
+  ASPNETCORE_URLS: "http://+:8080"
+  OpenAI__Endpoint: "https://soulsseekersai.cognitiveservices.azure.com/"
+  Cosmos__DatabaseName: "SoulSeekers"
+  Cosmos__TacticalReportVectorsContainerName: "SoulSeekersTacticalReportVectors"
+  Cosmos__UserTacticalReportContainerName: "SoulSeekersTacticalReports"
+  UseManagedIdentity: "false"
+  Cosmos__UserPostCombatDialogueContainerName: "SoulSeekersPostCombatDialogue"
+  Cosmos__VectorContainer: "SoulSeekersTacticalReportVectors"
+
 envFrom:
   - secretRef:
       name: kv-secrets
+  - configMapRef:
+      name: vectorizer-config
 
 # CSI Secret Store configuration
 keyVault:
