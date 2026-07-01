@@ -24,6 +24,11 @@ ingress:
 
   path: /feedback
 
+  rateLimit:
+    rpm: 20
+    burstMultiplier: 3
+    connections: 5
+
 # Kubernetes Secret automatically created
 # from Azure Key Vault via SecretProviderClass
 secretName: kv-secrets

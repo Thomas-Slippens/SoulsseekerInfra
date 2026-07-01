@@ -14,6 +14,10 @@ metadata:
 
     external-dns.alpha.kubernetes.io/hostname: kubernetes.soulsseeker.com
 
+    nginx.ingress.kubernetes.io/limit-rpm: {{ .Values.ingress.rateLimit.rpm | quote }}
+    nginx.ingress.kubernetes.io/limit-burst-multiplier: {{ .Values.ingress.rateLimit.burstMultiplier | quote }}
+    nginx.ingress.kubernetes.io/limit-connections: {{ .Values.ingress.rateLimit.connections | quote }}
+
 spec:
   ingressClassName: nginx
 

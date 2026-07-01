@@ -24,6 +24,11 @@ ingress:
 
   path: /analysis
 
+  rateLimit:
+    rpm: 10
+    burstMultiplier: 3
+    connections: 5
+
 # Kubernetes Secret created automatically
 # by the Azure Key Vault SecretProviderClass
 secretName: kv-secrets
