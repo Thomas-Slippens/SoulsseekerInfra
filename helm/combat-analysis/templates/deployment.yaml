@@ -28,11 +28,5 @@ spec:
           ports:
             - containerPort: 8080
 
-          env:
-            {{- range .Values.env }}
-            - name: {{ .name }}
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ $.Values.configMapName }}
-                  key: {{ .key }}
-            {{- end }}
+          envFrom:
+            {{- toYaml .Values.envFrom | nindent 12 }}

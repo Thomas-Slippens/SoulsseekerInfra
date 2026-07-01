@@ -29,9 +29,15 @@ ingress:
 secretName: kv-secrets
 
 # Environment variables loaded from Key Vault-backed Kubernetes Secret
+config:
+  OpenAI__DeploymentName: "gpt-4.1-mini"
+  OpenAI__ApiVersion: "2024-10-21"
+
 envFrom:
   - secretRef:
       name: kv-secrets
+  - configMapRef:
+      name: combat-analysis-config
 
 # CSI mount configuration
 keyVault:

@@ -29,9 +29,15 @@ ingress:
 secretName: kv-secrets
 
 # Inject all Key Vault-backed secrets as env vars
+config:
+  OpenAI__DeploymentName: "text-embedding-3-small"
+  OpenAI__ApiVersion: "2024-12-01"
+
 envFrom:
   - secretRef:
       name: kv-secrets
+  - configMapRef:
+      name: feedback-config
 
 # CSI Secret Store configuration
 keyVault:
