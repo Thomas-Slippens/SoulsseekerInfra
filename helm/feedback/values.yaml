@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: soulsseekercontainers.azurecr.io/feedback
-  tag: "813e3ed0f76e54f9c702ccbb8ea58375bad0303e"
+  tag: "660a1642612eaa9975f1fcc9acfccaf33239ecad"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -35,7 +35,8 @@ secretName: kv-secrets
 
 # Inject all Key Vault-backed secrets as env vars
 config:
-  OpenAI__DeploymentName: "text-embedding-3-small"
+  OpenAI__ChatDeployment: "gpt-4.1-mini"
+  OpenAI__EmbeddingDeployment: "text-embedding-3-small"
   OpenAI__ApiVersion: "2024-12-01"
   DOTNET_RUNNING_IN_CONTAINER: "true"
   ASPNETCORE_URLS: "http://+:8080"
