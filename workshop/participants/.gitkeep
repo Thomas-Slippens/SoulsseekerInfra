@@ -1,0 +1,7 @@
+# Add a file here for each workshop participant.
+# Filename must match the participant's chosen name (lowercase, no spaces).
+#
+# Example: workshop/participants/alice.yaml
+# ---
+# name: alice
+# repoURL: https://github.com/alice/soulsseekerworkshopapp

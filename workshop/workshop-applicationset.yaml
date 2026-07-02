@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: workshop
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/Thomas-Slippens/SoulsseekerInfra
+        revision: HEAD
+        files:
+          - path: "workshop/participants/*.yaml"
+
+  template:
+    metadata:
+      name: "workshop-{{name}}"
+    spec:
+      project: default
+
+      source:
+        repoURL: "{{repoURL}}"
+        path: helm
+        targetRevision: HEAD
+        helm:
+          parameters:
+            - name: ingress.host
+              value: "{{name}}.kubernetes.soulsseeker.com"
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "workshop-{{name}}"
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
