@@ -4,11 +4,15 @@ metadata:
   name: argocd
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/hostname: argocd.kubernetes.soulsseeker.com
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - argocd.kubernetes.soulsseeker.com
+      secretName: argocd-tls
   rules:
     - host: argocd.kubernetes.soulsseeker.com
       http:
