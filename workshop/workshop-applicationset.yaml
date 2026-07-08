@@ -25,6 +25,8 @@ spec:
           parameters:
             - name: ingress.host
               value: "{{name}}.kubernetes.soulsseeker.com"
+            - name: dapr.appId
+              value: "{{name}}"
 
       destination:
         server: https://kubernetes.default.svc
