@@ -19,7 +19,7 @@ spec:
         logLevel: debug
 
         domainFilters:
-          - kubernetes.soulsseeker.com
+          - soulsseeker.com
 
         policy: sync
         registry: txt
