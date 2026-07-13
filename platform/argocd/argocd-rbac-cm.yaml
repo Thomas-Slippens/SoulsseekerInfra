@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.default: "role:''"
+  policy.csv: |
+    p, role:workshop, applications, get, */*, allow
+    p, role:workshop, applications, list, */*, allow
+    p, role:workshop, projects, get, *, allow
+    p, role:workshop, projects, list, *, allow
+    p, role:workshop, clusters, get, *, allow
+    p, role:workshop, repositories, get, *, allow
+    p, role:workshop, logs, get, */*, allow
+    g, workshop, role:workshop
