@@ -17,6 +17,10 @@ spec:
         controller:
           replicaCount: 1
 
+          nodeSelector:
+            kubernetes.io/os: linux
+            kubernetes.azure.com/mode: system
+
           service:
             type: LoadBalancer
             annotations:
@@ -28,6 +32,15 @@ spec:
 
           admissionWebhooks:
             enabled: true
+            patch:
+              nodeSelector:
+                kubernetes.io/os: linux
+                kubernetes.azure.com/mode: system
+
+        defaultBackend:
+          nodeSelector:
+            kubernetes.io/os: linux
+            kubernetes.azure.com/mode: system
 
   destination:
     server: https://kubernetes.default.svc

@@ -10,6 +10,11 @@ spec:
     repoURL: https://emberstack.github.io/helm-charts
     chart: reflector
     targetRevision: 7.1.262
+    helm:
+      values: |
+        nodeSelector:
+          kubernetes.io/os: linux
+          kubernetes.azure.com/mode: system
 
   destination:
     server: https://kubernetes.default.svc

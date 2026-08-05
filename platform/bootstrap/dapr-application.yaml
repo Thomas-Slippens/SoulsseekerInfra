@@ -15,6 +15,9 @@ spec:
         global:
           ha:
             enabled: false
+          nodeSelector:
+            kubernetes.io/os: linux
+            kubernetes.azure.com/mode: system
 
   destination:
     server: https://kubernetes.default.svc

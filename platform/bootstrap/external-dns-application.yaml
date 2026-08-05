@@ -16,6 +16,10 @@ spec:
       values: |
         provider: azure
 
+        nodeSelector:
+          kubernetes.io/os: linux
+          kubernetes.azure.com/mode: system
+
         logLevel: debug
 
         domainFilters:

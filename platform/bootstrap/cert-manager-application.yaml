@@ -16,6 +16,25 @@ spec:
       values: |
         installCRDs: true
 
+        nodeSelector:
+          kubernetes.io/os: linux
+          kubernetes.azure.com/mode: system
+
+        webhook:
+          nodeSelector:
+            kubernetes.io/os: linux
+            kubernetes.azure.com/mode: system
+
+        cainjector:
+          nodeSelector:
+            kubernetes.io/os: linux
+            kubernetes.azure.com/mode: system
+
+        startupapicheck:
+          nodeSelector:
+            kubernetes.io/os: linux
+            kubernetes.azure.com/mode: system
+
         podLabels:
           azure.workload.identity/use: "true"
 
