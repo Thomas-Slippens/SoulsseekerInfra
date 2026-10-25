@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: soulsseekercontainers.azurecr.io/combat-analysis
-  tag: "660a1642612eaa9975f1fcc9acfccaf33239ecad"
+  tag: "121b3f33a59d9301ee77fa1b463a59018d1e1295"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
