@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: soulsseekercontainers.azurecr.io/vectorizer
-  tag: "121b3f33a59d9301ee77fa1b463a59018d1e1295"
+  tag: "bc19ceafab77ff31c52892b6a4d8c211af72bade"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
